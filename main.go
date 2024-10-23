@@ -14,11 +14,11 @@ import (
 	"github.com/alecthomas/kong"
 )
 
-const headers = `HTTP/1.x 200 OK
-Cache-Control: no-cache
+const headers = `HTTP/1.1 200 OK
+Cache-Control: max-age=0, must-revalidate, no-cache, no-store, private
+Pragma: no-cache
 Transfer-Encoding: chunked
 Content-Type: text/plain; charset=iso-8859-1
-X-Content-Type-Options: nosniff
 
 `
 
@@ -42,7 +42,7 @@ func main() {
 	}
 
 	log.Printf("Starting server on port %s", cli.Port)
-	listener, err := net.Listen("tcp", fmt.Sprintf(":%s", cli.Port))
+	listener, err := net.Listen("tcp4", fmt.Sprintf(":%s", cli.Port))
 	if err != nil {
 		log.Fatalf("Failed to start server :%s", err)
 	}
