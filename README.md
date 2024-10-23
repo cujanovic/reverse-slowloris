@@ -29,6 +29,17 @@ requested and added a block like this to my nginx configuration
         proxy_buffering off;
     }
 
+# install
+
+`
+go mod init reverse-slowloris && go mod tidy && go build
+`
+
+# run
+
+`reverse-slowloris payload.txt 8080`
+
+
 I would then include this in any configurations in my nginx `conf.d` directory
 for easy reuse. I also adjusted the base nginx conf to proxy into this server,
 for some handling when no hostname is specified (connecting via IP address)
