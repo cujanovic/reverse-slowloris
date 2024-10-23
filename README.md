@@ -37,7 +37,7 @@ go mod init reverse-slowloris && go mod tidy && go build
 
 # run
 
-`reverse-slowloris payload.txt 8080`
+`./reverse-slowloris payload.txt 8080`
 
 
 I would then include this in any configurations in my nginx `conf.d` directory
