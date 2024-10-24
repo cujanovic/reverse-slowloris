@@ -22,7 +22,7 @@ Content-Type: text/plain; charset=iso-8859-1
 
 `
 
-const port = ":6969"
+const port = ":8080"
 
 var cli struct {
 	Payload string `arg name:"payload" help:"content to send as a response." type:"string"`
